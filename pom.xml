@@ -98,6 +98,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <finalName>
+                        ${project.artifactId}-${project.version}-standalone
+                    </finalName>
+                    <attach>false</attach>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -160,7 +183,8 @@
     <scm>
         <url>https://github.com/ArangoDB-Community/arangodb-graphql-spring</url>
         <connection>scm:git:git://github.com/ArangoDB-Community/arangodb-graphql-spring.git</connection>
-        <developerConnection>scm:git:git://github.com/ArangoDB-Community/arangodb-graphql-spring.git</developerConnection>
+        <developerConnection>scm:git:git://github.com/ArangoDB-Community/arangodb-graphql-spring.git
+        </developerConnection>
     </scm>
 
     <organization>
