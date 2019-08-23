@@ -158,9 +158,9 @@
     </repositories>
 
     <scm>
-        <url>https://github.com/arangodb/arangodb-graphql-spring</url>
-        <connection>scm:git:git://github.com/arangodb/arangodb-graphql-spring.git</connection>
-        <developerConnection>scm:git:git://github.com/arangodb/arangodb-graphql-spring.git</developerConnection>
+        <url>https://github.com/ArangoDB-Community/arangodb-graphql-spring</url>
+        <connection>scm:git:git://github.com/ArangoDB-Community/arangodb-graphql-spring.git</connection>
+        <developerConnection>scm:git:git://github.com/ArangoDB-Community/arangodb-graphql-spring.git</developerConnection>
     </scm>
 
     <organization>
