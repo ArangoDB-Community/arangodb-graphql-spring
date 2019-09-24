@@ -118,4 +118,35 @@ public class ArangoGraphControllerTest {
 
         assertThat(result, equalTo(expectedResult));
     }
+
+    @Test
+    public void graphqlVariables() {
+
+        Object context = raw;
+        String query = "{ myField }";
+
+        Map<String, String> variables = new HashMap<>();
+        variables.put("Hello", "World");
+
+        ArgumentCaptor<ExecutionInput> arg = ArgumentCaptor.forClass(ExecutionInput.class);
+
+        Map<String, Object> request = new HashMap<>();
+        request.put("query", query);
+        request.put("variables", variables);
+
+        Map<String, Object> result = arangoGraphController.graphql(request, raw);
+
+        verify(graphQL).execute(arg.capture());
+
+        ExecutionInput executionInput = arg.getValue();
+
+        assertThat(executionInput.getContext(), equalTo(context));
+
+        assertThat(executionInput.getQuery(), equalTo(query));
+
+        assertThat(executionInput.getVariables(), equalTo(variables));
+
+        assertThat(result, equalTo(expectedResult));
+    }
+
 }

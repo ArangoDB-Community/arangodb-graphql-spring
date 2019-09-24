@@ -83,10 +83,12 @@ public class ArangoGraphController {
     @ResponseBody
     public Map<String, Object> graphql(@RequestBody Map<String, Object> request, HttpServletRequest raw) {
         String query = String.valueOf(request.get("query"));
+        Object variables = request.get("variables");
         String method = raw.getMethod();
         Instant start = logEnter(query, method);
         ExecutionResult executionResult = graphQL.execute(ExecutionInput.newExecutionInput()
                 .query(query)
+                .variables((Map<String, Object>) variables)
                 .context(raw)
                 .build());
         Map<String, Object> specResult = executionResult.toSpecification();
