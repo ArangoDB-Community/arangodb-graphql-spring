@@ -6,6 +6,6 @@
 <dependency>
     <groupId>com.arangodb</groupId>
     <artifactId>arangodb-graphql-spring</artifactId>
-    <version>1.0</version>
+    <version>1.2</version>
 </dependency>
 ```
